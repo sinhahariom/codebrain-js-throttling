@@ -9,7 +9,7 @@ const implementThrottle = (fn, delay) => {
   return function() {
     //clearInterval(timer);
     if (closureFlag) {
-      throttled(this, arguments);
+      throttled.apply(this, arguments);
       closureFlag = false;
       timer = setTimeout(() => {
         closureFlag = true;
